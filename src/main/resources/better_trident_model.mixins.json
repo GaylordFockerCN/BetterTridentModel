@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.p1nero.btm.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "better_trident_model.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "BlockEntityWithoutLevelRendererMixin",
+    "ThrownTridentRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
