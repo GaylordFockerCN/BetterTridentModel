@@ -5,11 +5,14 @@ import com.github.mcmodderanchor.simplebedrockmodel.v1.event.RegisterBedrockMode
 import com.github.mcmodderanchor.simplebedrockmodel.v1.event.RegisterBedrockModelReloadListenerEvent;
 import com.github.mcmodderanchor.simplebedrockmodel.v1.resource.RawResourceLoaders;
 import com.p1nero.btm.BetterTridentModelMod;
-import net.minecraft.resources.ResourceLocation;
+import com.p1nero.btm.client.renderer.BedrockThrownTridentRenderer;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 
 import java.util.Objects;
@@ -38,6 +41,11 @@ public final class BedrockModelLoader {
     @SubscribeEvent
     public static void registerInventoryModel(ModelEvent.RegisterAdditional event) {
         event.register(TRIDENT_INVENTORY_MODEL);
+    }
+
+    @SubscribeEvent
+    public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(EntityType.TRIDENT, BedrockThrownTridentRenderer::new);
     }
 
     public static BedrockModel getTridentModel() {
