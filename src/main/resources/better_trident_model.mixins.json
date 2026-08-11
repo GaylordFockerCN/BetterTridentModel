@@ -2,8 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "com.p1nero.btm.mixin",
-  "compatibilityLevel": "JAVA_8",
-  "refmap": "better_trident_model.refmap.json",
+  "compatibilityLevel": "JAVA_21",
   "mixins": [
   ],
   "client": [
