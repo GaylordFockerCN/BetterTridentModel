@@ -8,8 +8,7 @@
   ],
   "client": [
     "BlockEntityWithoutLevelRendererMixin",
-    "ItemRendererMixin",
-    "ThrownTridentRendererMixin"
+    "ItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
