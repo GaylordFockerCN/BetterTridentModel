@@ -35,7 +35,7 @@ public class ItemRendererMixin {
             int packedOverlay,
             BakedModel model
     ) {
-        ModelResourceLocation selectedModel = displayContext == ItemDisplayContext.GUI
+        ModelResourceLocation selectedModel = displayContext == ItemDisplayContext.GUI || displayContext == ItemDisplayContext.FIXED
                 ? BedrockModelLoader.TRIDENT_INVENTORY_MODEL
                 : originalModel;
         return modelManager.getModel(selectedModel);
