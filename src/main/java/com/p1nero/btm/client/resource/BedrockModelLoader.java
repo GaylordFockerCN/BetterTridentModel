@@ -7,6 +7,7 @@ import com.github.mcmodderanchor.simplebedrockmodel.v1.resource.RawResourceLoade
 import com.p1nero.btm.BetterTridentModelMod;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
@@ -16,6 +17,7 @@ import java.util.Objects;
 public final class BedrockModelLoader {
     public static final ResourceLocation TRIDENT = id("entity/trident");
     public static final ResourceLocation TRIDENT_TEXTURE = id("textures/entity/trident.png");
+    public static final ResourceLocation TRIDENT_INVENTORY_MODEL = id("item/trident_inventory");
 
     private static BedrockModel trident;
 
@@ -30,6 +32,11 @@ public final class BedrockModelLoader {
     @SubscribeEvent
     public static void captureModel(RegisterBedrockModelReloadListenerEvent event) {
         event.register(models -> trident = models.get(TRIDENT));
+    }
+
+    @SubscribeEvent
+    public static void registerInventoryModel(ModelEvent.RegisterAdditional event) {
+        event.register(TRIDENT_INVENTORY_MODEL);
     }
 
     public static BedrockModel getTridentModel() {
